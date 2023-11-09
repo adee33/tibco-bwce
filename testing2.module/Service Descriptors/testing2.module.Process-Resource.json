@@ -10,10 +10,28 @@
   "schemes" : [ "http" ],
   "paths" : {
     "/resource" : {
+      "get" : {
+        "summary" : "getResource",
+        "description" : "getResource",
+        "operationId" : "get-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/resource2" : {
       "post" : {
         "summary" : "postResource",
         "description" : "postResource",
-        "operationId" : "post-resource",
+        "operationId" : "post-resource2",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -25,24 +43,6 @@
           },
           "required" : true
         } ],
-        "responses" : {
-          "200" : {
-            "description" : "a string to be returned",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/resource1" : {
-      "get" : {
-        "summary" : "getResource",
-        "description" : "getResource",
-        "operationId" : "get-resource1",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ ],
         "responses" : {
           "200" : {
             "description" : "a string to be returned",

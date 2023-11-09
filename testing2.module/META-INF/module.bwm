@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_9I2fUH6wEe6oAta_k7dSpQ" targetNamespace="http://tns.tibco.com/bw/composite/testing2.module" name="testing2.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_uQKh4n6yEe6oAta_k7dSpQ" name="resource2" promote="ComponentProcess/resource2">
+    <sca:interface.wsdl xmi:id="_uQKh5n6yEe6oAta_k7dSpQ" interface="http://xmlns.example.com/20231109103512PLT#wsdl.interface(resource2)" scaext:wsdlLocation="../Processes/testing2/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_uQUS4H6yEe6oAta_k7dSpQ" name="RestService2" path="/resource2" docBasePath="http://localhost:7777/testing2.module" docResourcePath="Resource" basePath="/" connector="testing2.module.Resource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/testing2.module.Process-Resource.json">
+      <operation xmi:id="_uQUS4n6yEe6oAta_k7dSpQ" operationName="post" nickname="post-resource2" httpMethod="POST" notes="postResource" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_uQnN0H6yEe6oAta_k7dSpQ"/>
+      <advancedConfig xmi:id="_uQUS4X6yEe6oAta_k7dSpQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_uQUS436yEe6oAta_k7dSpQ" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_vq1wIn6yEe6oAta_k7dSpQ" name="resource" promote="ComponentProcess/resource">
+    <sca:interface.wsdl xmi:id="_vq1wJn6yEe6oAta_k7dSpQ" interface="http://xmlns.example.com/20231109103512PLT#wsdl.interface(resource3)" scaext:wsdlLocation="../Processes/testing2/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_vq1wJ36yEe6oAta_k7dSpQ" name="RestService" path="/resource" docBasePath="http://localhost:7777/testing2.module" docResourcePath="Resource" basePath="/" connector="testing2.module.Resource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/testing2.module.Process-Resource.json">
+      <operation xmi:id="_vq1wKX6yEe6oAta_k7dSpQ" operationName="get" nickname="get-resource" httpMethod="GET" notes="getResource" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_vrcNEH6yEe6oAta_k7dSpQ"/>
+      <advancedConfig xmi:id="_vq1wKH6yEe6oAta_k7dSpQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_vq1wKn6yEe6oAta_k7dSpQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_BQaKkH6xEe6oAta_k7dSpQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_BQkioH6xEe6oAta_k7dSpQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_BQkioX6xEe6oAta_k7dSpQ" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_BQuToH6xEe6oAta_k7dSpQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_BQuToX6xEe6oAta_k7dSpQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_BQuTon6xEe6oAta_k7dSpQ" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_BQ3dkH6xEe6oAta_k7dSpQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="__yy9EH6wEe6oAta_k7dSpQ" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="__yy9EX6wEe6oAta_k7dSpQ" processName="testing2.module.Process"/>
+    <sca:service xmi:id="_uQKh4H6yEe6oAta_k7dSpQ" name="resource2">
+      <sca:interface.wsdl xmi:id="_uQKh4X6yEe6oAta_k7dSpQ" interface="http://xmlns.example.com/20231109103512PLT#wsdl.interface(resource2)"/>
+    </sca:service>
+    <sca:service xmi:id="_vq1wIH6yEe6oAta_k7dSpQ" name="resource">
+      <sca:interface.wsdl xmi:id="_vq1wIX6yEe6oAta_k7dSpQ" interface="http://xmlns.example.com/20231109103512PLT#wsdl.interface(resource3)" scaext:wsdlLocation="../Processes/testing2/module/Process.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>
