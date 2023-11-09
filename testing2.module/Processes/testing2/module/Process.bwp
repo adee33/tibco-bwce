@@ -667,7 +667,9 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.0"/>
 
                                     <layoutConstraint
-                                    xsi:type="notation:Bounds" y="40"/>
+                                    height="40"
+                                    width="40"
+                                    xsi:type="notation:Bounds" y="42"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -914,6 +916,28 @@
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[12, 1, -328, 0]$[316, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.1/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.1/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[12, -1, -328, 19]$[316, -19, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
     </notation:Diagram>
     <tibex:NamespaceRegistry enabled="true">
         <tibex:namespaceItem
@@ -960,9 +984,16 @@
                     tibex:xpdlId="84201b3e-e478-4690-9c52-8b8f0e9a3e28" variable="post2">
                     <bpws:scope name="scope1">
                         <bpws:flow name="flow1">
-                            <bpws:links/>
+                            <bpws:links>
+                                <bpws:link
+                                    name="OnMessageStartTopostOut" tibex:linkType="SUCCESS"/>
+                            </bpws:links>
                             <bpws:empty name="OnMessageStart"
-                                tibex:constructor="onMessageStart" tibex:xpdlId="71215961-5dc3-41ec-9213-1ea5b524c4cc"/>
+                                tibex:constructor="onMessageStart" tibex:xpdlId="71215961-5dc3-41ec-9213-1ea5b524c4cc">
+                                <bpws:sources>
+                                    <bpws:source linkName="OnMessageStartTopostOut"/>
+                                </bpws:sources>
+                            </bpws:empty>
                             <bpws:empty name="OnMessageEnd"
                                 tibex:constructor="onMessageEnd" tibex:xpdlId="54dea5f0-fbc9-4bc3-8d85-51cb1812b29f"/>
                             <bpws:reply name="postOut" operation="post"
@@ -975,6 +1006,9 @@
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20231109103512PLT" version="2.0"&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns:postResponse2&gt;&lt;item&gt;&lt;xsl:value-of select="&amp;quot;Halo Dunia Pake POST&amp;quot;"/&gt;&lt;/item&gt;&lt;/tns:postResponse2&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                <bpws:targets>
+                                    <bpws:target linkName="OnMessageStartTopostOut"/>
+                                </bpws:targets>
                             </bpws:reply>
                         </bpws:flow>
                     </bpws:scope>
@@ -984,9 +1018,16 @@
                     tibex:xpdlId="3b45aef0-738f-41e2-bdbc-d0213f859c72" variable="get">
                     <bpws:scope name="scope2">
                         <bpws:flow name="flow2">
-                            <bpws:links/>
+                            <bpws:links>
+                                <bpws:link
+                                    name="OnMessageStart1TogetOut" tibex:linkType="SUCCESS"/>
+                            </bpws:links>
                             <bpws:empty name="OnMessageStart1"
-                                tibex:constructor="onMessageStart" tibex:xpdlId="d7fb0b12-ff3e-4737-bddc-c72feb73676c"/>
+                                tibex:constructor="onMessageStart" tibex:xpdlId="d7fb0b12-ff3e-4737-bddc-c72feb73676c">
+                                <bpws:sources>
+                                    <bpws:source linkName="OnMessageStart1TogetOut"/>
+                                </bpws:sources>
+                            </bpws:empty>
                             <bpws:empty name="OnMessageEnd1"
                                 tibex:constructor="onMessageEnd" tibex:xpdlId="66306350-2076-4393-abbc-4e80c077a7cd"/>
                             <bpws:reply name="getOut" operation="get"
@@ -999,6 +1040,9 @@
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20231109103512PLT" version="2.0"&gt;&lt;xsl:template name="getOut-input" match="/"&gt;&lt;tns:getResponse&gt;&lt;item&gt;&lt;xsl:value-of select="&amp;quot;Halo Dunia Pake GET&amp;quot;"/&gt;&lt;/item&gt;&lt;/tns:getResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                <bpws:targets>
+                                    <bpws:target linkName="OnMessageStart1TogetOut"/>
+                                </bpws:targets>
                             </bpws:reply>
                         </bpws:flow>
                     </bpws:scope>
