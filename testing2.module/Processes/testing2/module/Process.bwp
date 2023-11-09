@@ -938,6 +938,28 @@
             <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@links/@children.0"/>
             <bendpoints points="[12, -1, -328, 19]$[316, -19, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.1/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.1/@children.2/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, -1, -91, 0]$[104, 0, -12, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.2/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, -1, -91, 0]$[104, 0, -12, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
     </notation:Diagram>
     <tibex:NamespaceRegistry enabled="true">
         <tibex:namespaceItem
@@ -987,6 +1009,7 @@
                             <bpws:links>
                                 <bpws:link
                                     name="OnMessageStartTopostOut" tibex:linkType="SUCCESS"/>
+                                <bpws:link name="postOutToOnMessageEnd" tibex:linkType="SUCCESS"/>
                             </bpws:links>
                             <bpws:empty name="OnMessageStart"
                                 tibex:constructor="onMessageStart" tibex:xpdlId="71215961-5dc3-41ec-9213-1ea5b524c4cc">
@@ -995,7 +1018,11 @@
                                 </bpws:sources>
                             </bpws:empty>
                             <bpws:empty name="OnMessageEnd"
-                                tibex:constructor="onMessageEnd" tibex:xpdlId="54dea5f0-fbc9-4bc3-8d85-51cb1812b29f"/>
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="54dea5f0-fbc9-4bc3-8d85-51cb1812b29f">
+                                <bpws:targets>
+                                    <bpws:target linkName="postOutToOnMessageEnd"/>
+                                </bpws:targets>
+                            </bpws:empty>
                             <bpws:reply name="postOut" operation="post"
                                 partnerLink="resource2"
                                 portType="ns0:resource2"
@@ -1009,6 +1036,9 @@
                                 <bpws:targets>
                                     <bpws:target linkName="OnMessageStartTopostOut"/>
                                 </bpws:targets>
+                                <bpws:sources>
+                                    <bpws:source linkName="postOutToOnMessageEnd"/>
+                                </bpws:sources>
                             </bpws:reply>
                         </bpws:flow>
                     </bpws:scope>
@@ -1021,6 +1051,7 @@
                             <bpws:links>
                                 <bpws:link
                                     name="OnMessageStart1TogetOut" tibex:linkType="SUCCESS"/>
+                                <bpws:link name="getOutToOnMessageEnd1" tibex:linkType="SUCCESS"/>
                             </bpws:links>
                             <bpws:empty name="OnMessageStart1"
                                 tibex:constructor="onMessageStart" tibex:xpdlId="d7fb0b12-ff3e-4737-bddc-c72feb73676c">
@@ -1029,7 +1060,11 @@
                                 </bpws:sources>
                             </bpws:empty>
                             <bpws:empty name="OnMessageEnd1"
-                                tibex:constructor="onMessageEnd" tibex:xpdlId="66306350-2076-4393-abbc-4e80c077a7cd"/>
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="66306350-2076-4393-abbc-4e80c077a7cd">
+                                <bpws:targets>
+                                    <bpws:target linkName="getOutToOnMessageEnd1"/>
+                                </bpws:targets>
+                            </bpws:empty>
                             <bpws:reply name="getOut" operation="get"
                                 partnerLink="resource"
                                 portType="ns0:resource3"
@@ -1043,6 +1078,9 @@
                                 <bpws:targets>
                                     <bpws:target linkName="OnMessageStart1TogetOut"/>
                                 </bpws:targets>
+                                <bpws:sources>
+                                    <bpws:source linkName="getOutToOnMessageEnd1"/>
+                                </bpws:sources>
                             </bpws:reply>
                         </bpws:flow>
                     </bpws:scope>
