@@ -17,7 +17,7 @@
     <bw.Home>/bwce/2.8</bw.Home>
     <skipTests>false</skipTests>
     <failIfNoTests>false</failIfNoTests>
-    <tibco.Home>/home/adeonggo</tibco.Home>
+    <tibco.Home>/hom/adeonggo</tibco.Home>
   </properties>
   <build>
     <plugins>
@@ -75,9 +75,6 @@
               </build>
               <run>
                 <namingStrategy>alias</namingStrategy>
-                <ports>
-                  <port>${bwdocker.port.p0}</port>
-                </ports>
                 <envPropertyFile>${docker.env.property.file}</envPropertyFile>
               </run>
             </image>
